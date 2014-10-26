@@ -5,19 +5,17 @@ shinyUI(pageWithSidebar(
     headerPanel("MADtraffic"),
     sidebarPanel(
       "MADtraffic", 
-       selectInput(inputId = "x",
-                   label = "Choose X",
-                   choices = c('SepalLength', 'SepalWidth', 'PetalLength', 'PetalWidth'),
-                   selected = "SepalLength"),
-       selectInput(inputId = "y",
-                   label = "Choose Y",
-                   choices = c('SepalLength', 'SepalWidth', 'PetalLength', 'PetalWidth'),
-                       selected = "SepalWidth")              
+      sliderInput("num_cams",
+                  "Number of traffic cameras to display:",
+                  min = 100,
+                  max = 500,
+                  value = 100)
    ),
     
     mainPanel(
       tabsetPanel(
-        tabPanel("Puntos de medida del tráfico y calidad del aire", chartOutput("map_container", 'leaflet'))
+#         tabPanel("Puntos de medida del tráfico y calidad del aire", chartOutput("map_container", 'leaflet'))
+        tabPanel("Traffic density measure points", chartOutput("map_container", 'leaflet'))
         
       )
     )

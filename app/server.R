@@ -7,6 +7,7 @@ shinyServer(function(input, output) {
   
   output$map_container <- renderMap({
 #     getKMLData()
-    plotMap(500)
+#     plotMap(500)
+    plotMap(input$num_cams)
   })
 })
